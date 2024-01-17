@@ -3,8 +3,10 @@
 "extension/executePhase.js_sgs",
 "extension/fuben.json_sgs",
 "extension/initCard.txt_sgs",
+"extension/newWujiang.json_sgs",
 "extension/Settings.json_sgs",
 "extension/skill.js_sgs",
 "extension/tianlao.txt_sgs",
+"extension/tianlao_reverse.txt_sgs",
 "extension/xushao.json_sgs"
 ]

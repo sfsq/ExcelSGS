@@ -1,3 +1,4 @@
+//  将原有的技能名称换成新名称
 redefineSkillInfo([{
 	skillName: "诛害",
 	newSkillName: "诛害2",
@@ -7,26 +8,13 @@ redefineSkillInfo([{
 	newSkillName: "开挂",
 	description: "判定阶段/结束阶段，你可以选择至少一名其他角色，然后你对其造成100点伤害"
 }])
-// 添加技能兴乱!
+
+//  添加技能兴乱!
 addNewSkill({
 	skillName: "兴乱!",
 	description: "出牌阶段限一次，当你使用的仅指定一个目标的牌结算后，你可以随机获得牌堆里的一张点数为6的牌（若没有则改为摸六张牌）。",
 	skillSound1: "fanchou_xingluan1",
 	skillSound2: "fanchou_xingluan2"
-})
-
-//添加武将界樊稠
-addNewWujiang({
-	name: "界樊稠",
-	healthLimitVal: 4,
-	extensionPackage: "界限突破",
-	skillList: ["兴乱!"],
-	country: "群",
-	sex: "男",
-	pictureName: "fanchou",
-	deathSoundName: "fanchou_zhenwang",
-	deathWord: "唉，稚然疑心，甚重。"
-
 })
 
 defineSkillTrigger("兴乱!", {
