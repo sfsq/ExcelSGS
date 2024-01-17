@@ -17,7 +17,6 @@ var fieldSkillArray = classA_R.getDeclaredField("l");
 var fieldWujiangArray = classA_R.getDeclaredField("n");
 
 
-
 var intClass = java.lang.Integer.TYPE
 var fieldSkillName = classA_J.getDeclaredField("b");
 // var fieldSkillDescription = classA_J.getDeclaredField("c");
@@ -73,11 +72,12 @@ var cardTypeIdMap = {
     "决斗": 18,
     "火攻": 8
 }
-var cardkkkey= '南'
-cardkkkey+= '蛮'
-cardkkkey+='入'
-cardkkkey+= '侵'
-cardTypeIdMap[cardkkkey]=15
+var cardkkkey = '南'
+cardkkkey += '蛮'
+cardkkkey += '入'
+cardkkkey += '侵'
+cardTypeIdMap[cardkkkey] = 15
+
 function JavaConsole() {
     this.log = function (str) {
         javaContext.writeLog(String(str))
@@ -85,8 +85,9 @@ function JavaConsole() {
 }
 
 var console = new JavaConsole()
+
 function removeNewlinesAndTabs(str) {
-  return str.replace(/[\n\t]/g, '');
+    return str.replace(/[\n\t]/g, '');
 }
 
 function Player(q) {
@@ -397,24 +398,24 @@ function Player(q) {
             this.orginalObject.o(toStr(skillName))
         }
     }
-    this.makeAchoice = function(hintMsg, optionList){
+    this.makeAchoice = function (hintMsg, optionList) {
         //   invoke-virtual {p0, v0, v1, v2}, Lexcel/a/q;->choice(ILjava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList;
         //invoke-virtual {p0}, Lexcel/a/q;->clearXuanxiang()V
         this.orginalObject.clearXuanxiang()
-        
+
         this.orginalObject.setXuanXiang(1)
-            
+
 
         var len = optionList.length
-        for(var i = 0; i < len; i++){
+        for (var i = 0; i < len; i++) {
             //invoke-virtual {p0, v1, v0}, Lexcel/a/q;->addXuanxiang(Ljava/lang/String;Ljava/lang/String;)V
             var item = optionList[i]
-            this.orginalObject.addXuanxiang(toStr(item.value||""), toStr(item.text||""))
+            this.orginalObject.addXuanxiang(toStr(item.value || ""), toStr(item.text || ""))
         }
-        
+
         var list = this.orginalObject.choice(boxingInt(1), toStr("自定义选项"), toStr(hintMsg))
-        if(list.size() > 0){
-           return list.get(0).toString();
+        if (list.size() > 0) {
+            return list.get(0).toString();
         }
         return "";
     }
@@ -548,18 +549,18 @@ function listSkillCode(player) {
     var i;
     var list = []
     var jsonObj = {}
-   
+
     for (i = 1; i < length; i++) {
         var skillObject = skillArray[i];
-        
+
         var musicList = []
         var music1 = String(skillObject.j)
         var music2 = String(skillObject.k)
-        if(music1)
+        if (music1)
             musicList.push(music1)
-        if(music2)
+        if (music2)
             musicList.push(music2)
-        jsonObj[String(skillObject.b)]=musicList
+        jsonObj[String(skillObject.b)] = musicList
         // list.push(jsonObj)
     }
     console.log(JSON.stringify(jsonObj))
@@ -866,24 +867,24 @@ defineCommonEvent("新增技能", function (newList) {
 // })
 
 defineCommonEvent("新增武将", function (newList) {
-try{
-    var originalWujiangArrayLength = Number(getStaticField(classA_R, "originalWujiangArrayLength"))
-    var cardArrText = javaContext.getText("newWujiang.json");
-    
-    cardArrText=String(cardArrText);
-    
-    cardArrText=removeNewlinesAndTabs(cardArrText);
-    // console.log(cardArrText)
-    if (cardArrText) {
-        eval("var arr="+cardArrText)
-        // var arr = JSON.parse(cardArrText)
-        arr.forEach(function (wujiangInfo) {
-            addNewWujiang(wujiangInfo) 
-        })
-        
-    }
-    }catch(err){
-    console.log(err)
+    try {
+        var originalWujiangArrayLength = Number(getStaticField(classA_R, "originalWujiangArrayLength"))
+        var cardArrText = javaContext.getText("newWujiang.json");
+
+        cardArrText = String(cardArrText);
+
+        cardArrText = removeNewlinesAndTabs(cardArrText);
+        // console.log(cardArrText)
+        if (cardArrText) {
+            eval("var arr=" + cardArrText)
+            // var arr = JSON.parse(cardArrText)
+            arr.forEach(function (wujiangInfo) {
+                addNewWujiang(wujiangInfo)
+            })
+
+        }
+    } catch (err) {
+        console.log(err)
     }
 
     extraWujiangList.map(function (wujiangInfo, index) {
@@ -960,37 +961,37 @@ defineEvent("游戏开始时", function (player) {
 
     var list = player.getPlayerList()
     if (Number(player.playerId) == 1) {
-     /*   player.print("大家好")
-        listSkillCode(player)
-        fieldWujiangArray.setAccessible(true);
+        /*   player.print("大家好")
+           listSkillCode(player)
+           fieldWujiangArray.setAccessible(true);
 
-        
-        var tfield = fieldWujiangArray.get(null)
-        var len = tfield.length
-        player.print(":长度="+len)
-        var k = 1
-        var wlist = []
-        for(; k < len; k++){
-            var fieldWujiangName = classA_T.getDeclaredField("n");
-            fieldWujiangName.setAccessible(true);            
-            wlist.push(tfield[k].n+"")
-        
-            
-        }
-       console.log(JSON.stringify(wlist))
-       */
+
+           var tfield = fieldWujiangArray.get(null)
+           var len = tfield.length
+           player.print(":长度="+len)
+           var k = 1
+           var wlist = []
+           for(; k < len; k++){
+               var fieldWujiangName = classA_T.getDeclaredField("n");
+               fieldWujiangName.setAccessible(true);
+               wlist.push(tfield[k].n+"")
+
+
+           }
+          console.log(JSON.stringify(wlist))
+          */
         var cardArrText = javaContext.getText("initCard.txt");
         if (cardArrText) {
             var cardArr = cardArrText.split(",")
             cardArr && cardArr.forEach(function (cardName) {
-            
-            if(cardName==null){
-            return
-            }
-            var cardN = cardName.trim()
-            if(cardN.length == 0||cardN==""){
-                return
-            }
+
+                if (cardName == null) {
+                    return
+                }
+                var cardN = cardName.trim()
+                if (cardN.length == 0 || cardN == "") {
+                    return
+                }
 
                 player.getCard(toStr(cardN), false)
             })
@@ -1006,7 +1007,7 @@ defineEvent("游戏开始时", function (player) {
         changeSkillInfo(skillName, info)
 
     })
-var evtSkillArr = getEventSkillTriggerArray(player, "游戏开始时")
+    var evtSkillArr = getEventSkillTriggerArray(player, "游戏开始时")
     evtSkillArr.forEach(function (implFunc) {
         implFunc(player)
     })
@@ -1053,8 +1054,8 @@ defineEvent("成为目标时", function (targetPlayer, cardUserPlayer, card, ind
 })
 
 defineEvent("使用结算结束后", function (cardUserPlayer, card) {
-    if(!cardUserPlayer.isAlive){
-    return
+    if (!cardUserPlayer.isAlive) {
+        return
     }
     var list = cardUserPlayer.getPlayerList(cardUserPlayer.getCurrentPlayer())
     // player.print(JSON.stringify(list))
@@ -1068,8 +1069,8 @@ defineEvent("使用结算结束后", function (cardUserPlayer, card) {
 })
 
 defineEvent("使用牌时", function (cardUserPlayer, card) {
-    if(!cardUserPlayer.isAlive){
-    return
+    if (!cardUserPlayer.isAlive) {
+        return
     }
     var list = cardUserPlayer.getPlayerList(cardUserPlayer.getCurrentPlayer())
     // cardUserPlayer.print("使用牌时，花色为"+card.cardSuit)
@@ -1087,7 +1088,7 @@ defineCommonEvent("武将登场时", function (q) {
     return implObj && implObj(new Player(q))
 })
 defineEvent("武将登场时", function (player) {
-player.print("登场")
+    player.print("登场")
     var evtSkillArr = getEventSkillTriggerArray(player, "武将登场时")
     evtSkillArr.forEach(function (implFunc) {
         implFunc(player)
