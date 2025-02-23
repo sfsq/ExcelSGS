@@ -957,6 +957,19 @@ defineCommonEvent("使用结算结束后", function (cardUserQ, q, p, index) {
 })
 
 
+function checkCustomInitialHandcards() {
+    var jsonStr = javaContext.getText("Settings.json");
+    if (jsonStr === null || jsonStr.trim() === "") {
+        return false;
+    }
+    try {
+        var jsonObj = JSON.parse(jsonStr);
+        return jsonObj.hasOwnProperty("自定义额外初始手牌") && jsonObj["自定义额外初始手牌"] === "开";
+    } catch (e) {
+        return false;
+    }
+}
+
 defineEvent("游戏开始时", function (player) {
 
     var list = player.getPlayerList()
@@ -980,8 +993,10 @@ defineEvent("游戏开始时", function (player) {
            }
           console.log(JSON.stringify(wlist))
           */
+
         var cardArrText = javaContext.getText("initCard.txt");
-        if (cardArrText) {
+
+        if (checkCustomInitialHandcards() && cardArrText) {
             var cardArr = cardArrText.split(",")
             cardArr && cardArr.forEach(function (cardName) {
 
@@ -996,6 +1011,8 @@ defineEvent("游戏开始时", function (player) {
                 player.getCard(toStr(cardN), false)
             })
         }
+
+
     }
     skillDescriptionChangeArray.forEach(function (skillDefinition) {
         var skillName = skillDefinition.skillName;

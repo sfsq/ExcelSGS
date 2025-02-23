@@ -1,47 +1,47 @@
 [
   {
-    name: "界樊稠",
-    healthLimitVal: 4,
-    extensionPackage: "界限突破",
-    skillList: [
+    "name": "界樊稠",
+    "healthLimitVal": 4,
+    "extensionPackage": "界限突破",
+    "skillList": [
       "兴乱!"
     ],
-    country: "群",
-    sex: "男",
-    pictureName: "fanchou",
-    deathSoundName: "fanchou_zhenwang",
-    deathWord: "唉，稚然疑心，甚重。"
+    "country": "群",
+    "sex": "男",
+    "pictureName": "fanchou",
+    "deathSoundName": "fanchou_zhenwang",
+    "deathWord": "唉，稚然疑心，甚重。"
   },
   {
-    name: "真马神",
-    healthLimitVal: 4,
-    extensionPackage: "天牢",
-    skillList: [
+    "name": "真马神",
+    "healthLimitVal": 4,
+    "extensionPackage": "天牢",
+    "skillList": [
       "狩骊",
       "横骛",
       "铁骑1",
       "马术"
     ],
-    country: "神",
-    sex: "男",
-    pictureName: "shenmachao",
-    deathSoundName: "shenmachao_zhenwang",
-    deathWord: "我才是真神"
+    "country": "神",
+    "sex": "男",
+    "pictureName": "shenmachao",
+    "deathSoundName": "shenmachao_zhenwang",
+    "deathWord": "我才是真神"
   },
   {
-    name: "神鬼无前吕布",
-    healthLimitVal: 4,
-    extensionPackage: "天牢",
-    skillList: [
+    "name": "神鬼无前吕布",
+    "healthLimitVal": 4,
+    "extensionPackage": "天牢",
+    "skillList": [
       "马术",
       "无双",
       "极武",
       "神躯"
     ],
-    country: "神",
-    sex: "男",
-    pictureName: "shenlvbu3",
-    deathSoundName: "shenlvbu3_zhenwang",
-    deathWord: "断轮回六道,囚神佛共湮黄泉!"
+    "country": "神",
+    "sex": "男",
+    "pictureName": "shenlvbu3",
+    "deathSoundName": "shenlvbu3_zhenwang",
+    "deathWord": "断轮回六道,囚神佛共湮黄泉!"
   }
 ]

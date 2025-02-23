@@ -1,6 +1,7 @@
 [
 "extension/common.js_sgs",
 "extension/executePhase.js_sgs",
+"extension/fangke.txt_sgs",
 "extension/fuben.json_sgs",
 "extension/initCard.txt_sgs",
 "extension/newWujiang.json_sgs",
@@ -8,5 +9,6 @@
 "extension/skill.js_sgs",
 "extension/tianlao.txt_sgs",
 "extension/wujiang.txt_sgs",
-"extension/xushao.json_sgs"
+"extension/xushao.json_sgs",
+"extension/¿©’ππ¶ƒ‹ΩÈ…‹.txt_sgs"
 ]
